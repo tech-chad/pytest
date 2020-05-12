@@ -1241,7 +1241,7 @@ def test_help_and_version_after_argument_error(testdir):
     assert "to see available markers type: pytest --markers" not in result.stdout.lines
     assert result.ret == ExitCode.USAGE_ERROR
 
-    result = testdir.runpytest("--version")
+    result = testdir.runpytest("--version", " --version")
     result.stderr.fnmatch_lines(
         ["*pytest*{}*imported from*".format(pytest.__version__)]
     )
